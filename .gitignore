@@ -1,0 +1,12 @@
+# Node
+node_modules/
+
+# React build
+bookbuzz/build/
+
+# Logs
+*.log
+
+# Misc
+.DS_Store
+.env
