@@ -1,0 +1,210 @@
+.loginbody {
+    background-color: #058589;
+    margin: auto; width: 45%; height: 60vh;
+    margin-top: 10.8vh; padding: 2vw;
+    padding-top: 5vw; padding-bottom: 5vw;
+    border-radius: 1vw; border: none;
+}
+
+body {
+    background-color: #303030; overflow-x: hidden;
+}
+
+input {
+    border: none;
+}
+
+.loginhead {
+    color: white; text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 2.5vw; font-weight: 400;
+    margin-top: 0;
+}
+
+.usernameinputlogin, .passwordinputlogin {
+    height: 3.4vw; width: 22vw;
+    border-radius: 2vw; padding-left: 1vw;
+    margin: auto; margin-top: 0.5vw;
+    font-size: 1.5vw; font-family: "Lora", serif;
+    background-color: #d8e5fe; color: rgb(46, 46, 46);
+}
+
+.usernameinputlogin {
+    margin-top: 2vw;
+}
+
+.loginnormalform {
+    display: flex; flex-direction: column;
+    justify-content: center;
+}
+
+.sumitbtnlogin {
+    width: 18%; height: 4vw;
+    border-radius: 2.25vw; text-align: center;
+    margin: auto; margin-top: 2vw;
+    background-color: rgb(255, 203, 203);
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.7vw; font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.sumitbtnlogin:hover {
+    background-color: rgb(243, 187, 187);
+    font-size: 1.75vw;
+}
+
+.logingooglebtn {
+    width: 39%; height: 4vw;
+    border-radius: 2.25vw; text-align: center;
+    display: flex; justify-content: center;
+    margin: auto; margin-top: 2vw; align-items: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.55vw; font-weight: 500;
+    color: white; background-color: rgba(255, 203, 203, 0.28);
+    cursor: pointer; border: 0.15vw solid rgb(255, 203, 203);
+    transition: all 0.2s ease;
+}
+
+.logingooglebtn:hover {
+    background-color: rgba(255, 203, 203, 0.461);
+    font-size: 1.6vw;
+}
+
+.noaccpara {
+    text-align: center; color: white;
+    font-size: 1.3vw; font-family: "Lora", serif;
+    margin-top: 3vw;
+}
+
+.signuplink {
+    color: #ffb999; text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+.onboardingbody {
+    display: flex; flex-direction: row;
+    justify-content: space-around;
+    background-image: url('https://wallpapercat.com/w/full/7/e/c/1326129-3840x2160-desktop-4k-book-background-image.jpg');
+    background-size: cover; background-position: center; background-repeat: no-repeat;
+    position: relative; z-index: 0;
+    bottom: 0.6vw; right: 0.63vw;
+    width: 99.95vw; height: 53.7vw; overflow-y: hidden;
+}
+
+.onboardingbody::before {
+  content: ""; position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.65); z-index: 1;
+}
+
+.signupbody {
+    background-color: #058589;
+    margin: auto; width: 45%; height: 65vh;
+    margin-top: 9vh; padding: 2vw;
+    padding-top: 4vw; padding-bottom: 5vw;
+    border: none; border-radius: 1vw;
+    z-index: 10;
+}
+
+.onboardingdecor {
+    width: 45vw;
+}
+
+.obdecorpara {
+    font-family: "Lora", serif; font-size: 1.65vw;
+    padding: 4vw; color: white;
+    position: relative; margin-top: 0;
+    padding-right: 1vw; z-index: 10;
+}
+
+.signuphead {
+    color: white; text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 2.5vw; font-weight: 400;
+    margin-top: 0;
+}
+
+.usernameinputsignup, .passwordinputsignup, .confirmpwdinputsignup {
+    height: 3.4vw; width: 23vw;
+    border-radius: 2vw; padding-left: 1vw;
+    margin: auto; margin-top: 0.5vw;
+    font-size: 1.5vw; font-family: "Lora", serif;
+    background-color: #d8e5fe; color: rgb(46, 46, 46);
+}
+
+.usernameinputsignup {
+    margin-top: 2vw;
+}
+
+.signupnormalform {
+    display: flex; flex-direction: column;
+    justify-content: center;
+}
+
+.sumitbtnsignup {
+    width: 22%; height: 4vw;
+    border-radius: 2.25vw; text-align: center;
+    margin: auto; margin-top: 2vw;
+    background-color: rgb(255, 203, 203);
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.7vw; font-weight: 500;
+    cursor: pointer; transition: all 0.2s ease;
+}
+
+.signupgooglebtn {
+    width: 42%; height: 4vw;
+    border-radius: 2.25vw; text-align: center;
+    display: flex; justify-content: center;
+    margin: auto; margin-top: 2vw; align-items: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.55vw; font-weight: 500;
+    color: white; background-color: rgb(255, 203, 203, 0.28);
+    cursor: pointer; border: 0.15vw solid rgb(255, 203, 203);
+    transition: all 0.2s ease;
+}
+
+.sumitbtnsignup:hover {
+    background-color: rgb(243, 187, 187);
+    font-size: 1.75vw;
+}
+
+.signupgooglebtn:hover {
+    background-color: rgba(255, 203, 203, 0.461);
+    font-size: 1.6vw;
+}
+
+.haveaccpara {
+    text-align: center; color: white;
+    font-size: 1.3vw; font-family: "Lora", serif;
+    margin-top: 3vw;
+}
+
+.loginlink {
+    color: #ffb999; text-decoration: underline;
+}
+
+.tagobhead {
+    font-family: "Montserrat", sans-serif;
+    font-size: 3.5vw; font-weight: 500;
+    line-height: 5vw; padding: 4vw;
+    position: relative; color: white;
+    margin-bottom: 0; margin-top: 9vw; z-index: 10;
+}
+
+.hidebottomob {
+    position: fixed; width: 100%; height: 1.25vw;
+    background-color: rgba(0, 0, 0, 0.9); bottom: 0;
+}
+
+button {
+    border: none;
+}
