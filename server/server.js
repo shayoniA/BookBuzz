@@ -7,7 +7,6 @@ const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/userRoutes');
 const User = require('./models/User');
 const topBooksRouter = require('./routes/topBooks');
-const allBooksRouter = require('./routes/allBooks');
 const insightsRouter = require('./routes/insights');
 const fs = require('fs');
 const csv = require('csv-parser');
@@ -24,7 +23,6 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 app.use('/api', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api', topBooksRouter);
-// app.use('/api', allBooksRouter);
 app.use('/api/insights', insightsRouter);
 
 // All Books Route (from CSV)

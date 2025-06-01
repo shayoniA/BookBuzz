@@ -3,26 +3,32 @@ from flask_cors import CORS
 import pandas as pd
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import MinMaxScaler
+import os
 
 app = Flask(__name__)
 CORS(app)
 
+# Determine the directory of the current file (books.py)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+CSV_PATH = os.path.join(BASE_DIR, 'AllBooks.csv')
+
 @app.route('/api/top-books', methods=['GET'])
 def get_top_books():
-    df = pd.read_csv('AllBooks.csv')
+    # df = pd.read_csv('AllBooks.csv')
+    df = pd.read_csv(CSV_PATH)
     sorted_df = df.sort_values(by='currentScore', ascending=False)
     top_books = sorted_df.head(10).to_dict(orient='records')
     return jsonify(top_books)
 
 @app.route('/api/all-books', methods=['GET'])
 def get_all_books():
-    df = pd.read_csv('AllBooks.csv')
+    df = pd.read_csv(CSV_PATH)
     all_books = df.to_dict(orient='records')
     return jsonify(all_books)
 
 @app.route('/api/recommend-books', methods=['POST'])
 def recommend_books():
-    df = pd.read_csv('AllBooks.csv')
+    df = pd.read_csv(CSV_PATH)
     author_freq = df['author'].value_counts(normalize=True)
     categories_freq = df['categories'].value_counts(normalize=True)
     df['author_freq_enc'] = df['author'].map(author_freq)
