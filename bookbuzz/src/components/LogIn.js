@@ -11,7 +11,7 @@ function LogIn() {
   const handleLogIn = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/api/users/login', {
+      const response = await fetch('https://bookbuzz.onrender.com/api/users/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
@@ -35,7 +35,7 @@ function LogIn() {
   try {
     const result = await signInWithPopup(auth, googleProvider);
     const email = result.user.email;
-    const response = await fetch('http://localhost:5000/api/users/google-login', {
+    const response = await fetch('https://bookbuzz.onrender.com/api/users/google-login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email }),
