@@ -14,7 +14,7 @@ function BookPage() {
   const { favorites, addToFavorites } = useContext(FavoritesContext);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/all-books')
+    fetch('https://bookbuzz.onrender.com/api/all-books')
       .then(res => res.json())
       .then(data => {
         const foundBook = data.find(b => b.book_title === id);
@@ -25,7 +25,7 @@ function BookPage() {
 
   useEffect(() => {
     if (book) {
-      fetch(`http://localhost:5000/api/insights/get-insights/${book.book_title}`)
+      fetch(`https://bookbuzz.onrender.com/api/insights/get-insights/${book.book_title}`)
         .then(res => res.json())
         .then(data => setInsights(data))
         .catch(err => console.error('Error fetching insights:', err));
@@ -37,7 +37,7 @@ function BookPage() {
     if (newInsight.length > 1000) return alert('Insight too long');
 
     try {
-      const response = await fetch('http://localhost:5000/api/insights/add-insight', {
+      const response = await fetch('https://bookbuzz.onrender.com/api/insights/add-insight', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ bookId: book.book_title, userId, username, content: newInsight })
@@ -58,7 +58,7 @@ function BookPage() {
 
   const handleUpvote = async (insightId) => {
     try {
-      const response = await fetch('http://localhost:5000/api/insights/upvote', {
+      const response = await fetch('https://bookbuzz.onrender.com/api/insights/upvote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ insightId, userId })

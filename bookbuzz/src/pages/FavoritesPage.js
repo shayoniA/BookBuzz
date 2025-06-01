@@ -7,7 +7,7 @@ function FavoritesPage() {
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/users/${userId}/favorites`)
+    fetch(`https://bookbuzz.onrender.com/api/users/${userId}/favorites`)
       .then(response => response.json())
       .then(data => {
         // Reverse the favorites array before setting state
@@ -20,7 +20,7 @@ function FavoritesPage() {
   const handleRemoveFavorite = async (bookTitle) => {
     const username = localStorage.getItem('username');
     try {
-      const response = await fetch('http://localhost:5000/api/users/remove-favorite', {
+      const response = await fetch('https://bookbuzz.onrender.com/api/users/remove-favorite', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, book_title: bookTitle }),

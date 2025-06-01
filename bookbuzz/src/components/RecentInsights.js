@@ -9,7 +9,7 @@ const RecentInsights = ({ userId }) => {
 
   useEffect(() => {
     // Fetch all books
-    fetch('http://localhost:5000/api/all-books')
+    fetch('https://bookbuzz.onrender.com/api/all-books')
       .then(res => res.json())
       .then(data => setAllBooks(data))
       .catch(err => console.error('Error fetching all books:', err));
@@ -18,7 +18,7 @@ const RecentInsights = ({ userId }) => {
   // Fetch recent insights
   useEffect(() => {
     if (userId) {
-        fetch(`http://localhost:5000/api/insights/recent-insights/${userId}`)
+        fetch(`https://bookbuzz.onrender.com/api/insights/recent-insights/${userId}`)
             .then(res => res.json())
             .then(data => setInsights(data))
             .catch(err => console.error('Error fetching recent insights:', err))

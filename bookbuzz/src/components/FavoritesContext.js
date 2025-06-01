@@ -7,7 +7,7 @@ export function FavoritesProvider({ children }) {
 
   useEffect(() => {
     if (username) {
-      fetch(`http://localhost:5000/api/users/favorites/${username}`)
+      fetch(`https://bookbuzz.onrender.com/api/users/favorites/${username}`)
         .then(res => res.ok ? res.json() : [])
         .then(data => setFavorites(data))
         .catch(err => console.error('Error fetching favorites:', err));
@@ -18,14 +18,14 @@ export function FavoritesProvider({ children }) {
 
   const addToFavorites = (book) => {
   console.log('Sending book to add-favorite:', book);
-  fetch(`http://localhost:5000/api/users/add-favorite`, {
+  fetch(`https://bookbuzz.onrender.com/api/users/add-favorite`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ username, book })
   })
     .then(res => res.json())
     .then(() => {
-      fetch(`http://localhost:5000/api/users/favorites/${username}`)
+      fetch(`https://bookbuzz.onrender.com/api/users/favorites/${username}`)
         .then(res => res.ok ? res.json() : [])
         .then(data => setFavorites(data));
     })
@@ -33,7 +33,7 @@ export function FavoritesProvider({ children }) {
 };
 
   const removeFromFavorites = (book_title) => {
-    fetch(`http://localhost:5000/api/users/remove-favorite`, {
+    fetch(`https://bookbuzz.onrender.com/api/users/remove-favorite`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, book_title })

@@ -17,19 +17,19 @@ function Dashboard() {
 
   useEffect(() => {
     // Fetch top books
-    fetch('http://localhost:5000/api/top-books')
+    fetch('https://bookbuzz.onrender.com/api/top-books')
       .then(res => res.json())
       .then(data => setTopBooks(data))
       .catch(err => console.error('Error fetching top books:', err));
 
     // Fetch all books for search and recommendations
-    fetch('http://localhost:5000/api/all-books')
+    fetch('https://bookbuzz.onrender.com/api/all-books')
       .then(res => res.json())
       .then(data => setAllBooks(data))
       .catch(err => console.error('Error fetching all books:', err));
 
     if (userId) {
-      fetch(`http://localhost:5000/api/users/${userId}/favorites`)
+      fetch(`https://bookbuzz.onrender.com/api/users/${userId}/favorites`)
         .then(res => res.json())
         .then(data => setFavorites(data))
         .catch(err => console.error('Error fetching favorites:', err));

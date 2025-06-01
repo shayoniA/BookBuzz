@@ -17,7 +17,7 @@ function SignUp() {
       return;
     }
     try {
-      const response = await fetch('http://localhost:5000/api/signup', {
+      const response = await fetch('https://bookbuzz.onrender.com/api/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password, confirmPassword }),
@@ -40,7 +40,7 @@ function SignUp() {
       const result = await signInWithPopup(auth, googleProvider);
       const user = result.user;
       // OPTIONAL: Send user info to your backend
-      await fetch('http://localhost:5000/api/users', {
+      await fetch('https://bookbuzz.onrender.com/api/users', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ uid: user.uid, email: user.email })
