@@ -30,7 +30,8 @@ app.use('/api/insights', insightsRouter);
 // All Books Route (from CSV)
 app.get('/api/all-books', (req, res) => {
   const results = [];
-  fs.createReadStream('AllBooks.csv')
+  //fs.createReadStream('AllBooks.csv')
+  fs.createReadStream(path.join(__dirname, 'AllBooks.csv'))
     .pipe(csv())
     .on('data', (data) => results.push(data))
     .on('end', () => {
