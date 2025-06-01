@@ -9,7 +9,9 @@ const User = require('./models/User');
 const topBooksRouter = require('./routes/topBooks');
 const insightsRouter = require('./routes/insights');
 const fs = require('fs');
+const axios = require('axios');
 const csv = require('csv-parser');
+const { Readable } = require('stream');
 
 dotenv.config();
 const app = express();
@@ -25,17 +27,37 @@ app.use('/api/users', userRoutes);
 app.use('/api', topBooksRouter);
 app.use('/api/insights', insightsRouter);
 
+// app.get('/api/all-books', (req, res) => {
+//   const results = [];
+//   //fs.createReadStream('AllBooks.csv')
+//   fs.createReadStream(path.join(__dirname, 'AllBooks.csv'))
+//     .pipe(csv())
+//     .on('data', (data) => results.push(data))
+//     .on('end', () => {
+//       res.json(results);
+//     });
+// });
+
 // All Books Route (from CSV)
-app.get('/api/all-books', (req, res) => {
+app.get('/api/all-books', async (req, res) => {
   const results = [];
-  //fs.createReadStream('AllBooks.csv')
-  fs.createReadStream(path.join(__dirname, 'AllBooks.csv'))
-    .pipe(csv())
-    .on('data', (data) => results.push(data))
-    .on('end', () => {
-      res.json(results);
-    });
+  const FILE_ID = '1_Hb4LcDNw4w9Gp8d2Xmpkw8GqVE00A3O';
+  const url = `https://drive.google.com/uc?export=download&id=${FILE_ID}`;
+  try {
+    const response = await axios.get(url, { responseType: 'stream' });
+    response.data
+      .pipe(csv())
+      .on('data', (data) => results.push(data))
+      .on('end', () => {
+        res.json(results);
+      });
+  } catch (err) {
+    console.error('Error fetching CSV:', err);
+    res.status(500).json({ message: 'Failed to fetch CSV data' });
+  }
 });
+
+
 
 app.get('/api/users/:userId/favorites', async (req, res) => {
   const userId = req.params.userId;
